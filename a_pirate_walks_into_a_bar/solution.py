@@ -1,6 +1,8 @@
 def answer(numbers):
-    pirates = [0]
-    for pirate in numbers:
-        if pirate in pirates:
-            return len(pirates) - pirates.index(pirate)
-        pirates.append(pirate)
+    pirates = []
+    lastPirate = 0
+    while lastPirate not in pirates:
+        pirates.append(lastPirate)
+        lastPirate=numbers[lastPirate]
+    return len(pirates) - pirates.index(lastPirate)
+
